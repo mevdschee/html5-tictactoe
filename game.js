@@ -66,8 +66,10 @@ TicTacToe.prototype.move = function(x,y) {
 	if (!this.won && !this.board[x][y].player) {
 		this.board[x][y].player = this.player;
 		this.won = this.hasWon();
-		var i = this.players.indexOf(this.player);
-		this.player = this.players[(i+1)%this.players.length];
+		if (!this.won) {
+			var i = this.players.indexOf(this.player);
+			this.player = this.players[(i+1)%this.players.length];
+		}
 		result = true;
 	}
 	return result;

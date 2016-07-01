@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5 Game</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="game.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+					url: "graphics.svg",
+					dataType: "text",
+					success: function(response){
+						$(document.body).prepend('<div style="display:none">'+response+'</div>');
+						new TicTacToePlayer('#game');
+					}
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div id="game" style="width:600px;height:600px;"></div>
+	</body>
+</html>
